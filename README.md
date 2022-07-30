@@ -1,5 +1,7 @@
 
 
+
+
 # leetcode
 
 LeetCode刷题笔记。备战面试时，有幸看到谷歌大佬分享的刷题思路，沿用该思路记录自己的刷题历程。
@@ -410,18 +412,79 @@ void insertSort(int[] arr) {
 
 [128  Longest Consecutive Sequence (Medium) ](128/README.md)
 
-[](/README.md)
 
-[](/README.md)
 
-[](/README.md)
+## **树**
 
-[](/README.md)
+[104 Maximum Depth of Binary Tree (Easy)](104/README.md)
 
-[](/README.md)
+[110 Balanced Binary Tree (Easy)](110/README.md)
 
-[](/README.md)
+[437 Path Sum III (Medium)](437/README.md)
 
-[](/README.md)
+[101 Symmetric Tree (Easy)](101/README.md)
 
-[](/README.md)
+[1110 Delete Nodes And Return Forest (Medium)](1110/README.md)
+
+[102 Binary Tree Level Order Traversal(Medium)](102/README.md)
+
+### **前序遍历**
+
+```java
+void preOrder(TreeNode root) {
+    visit(root);
+    preOrder(root.left);
+    preOrder(root.right);
+}
+```
+
+### **中序遍历**
+
+```java
+void inOrder(TreeNode root) {
+    inOrder(root.left);
+    visit(root);
+    inOrder(root.right);
+}
+```
+
+### **后序遍历**
+
+```java
+void postOrder(TreeNode root) {
+    postOrder(root.left);
+    postOrder(root.right);
+    visit(root);
+}
+```
+
+### **二叉查找树**
+
+二叉查找树（Binary Search Tree, BST）是一种特殊的二叉树：对于每个父节点，其左子树中所有节点的值小于等于父结点的值，其右子树中所有节点的值大于等于父结点的值。因此对于一个二叉查找树，我们可以在O.n log n. 的时间内查找一个值是否存在：从根节点开始，若当前节点的值大于查找值则向左下走，若当前节点的值小于查找值则向右下走。同时因为二叉查找树是有序的，对其中序遍历的结果即为排好序的数组。
+
+[98 Validate Binary Search Tree(Medium)](98/README.md)
+
+### **字典树**
+
+字典树（Trie）用于判断字符串是否存在或者是否具有某种字符串前缀。
+
+对于大数量单词的存储，如果使用哈希的话，在其中搜索一个单词的实际开销也是非常大的，且无法轻易支持搜索单词前缀。然而由于一个英文单词的长度n 通常在10 以内，如果我们使用字典树，则可以在O(n)——近似O(1)的时间内完成搜索，且额外开销非常小。
+
+![dictionary-tree](dictionary-tree.png)
+
+## **字符串常见题型**
+
+### **字符串比较**
+
+[242 Valid Anagram (Easy)](242/README.md)
+
+[205 Isomorphic Strings (Easy)](205/README.md)
+
+[647 Palindromic Substrings (Medium)](647/README.md)
+
+[696 Count Binary Substrings (Easy)](696/README.md)
+
+[316 Remove Duplicate Letters(Medium)](316/README.md)
+
+[395  Longest Substring with At Least K Repeating Characters(Medium)](395/README.md)
+
