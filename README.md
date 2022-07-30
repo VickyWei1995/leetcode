@@ -300,7 +300,128 @@ void insertSort(int[] arr) {
 
 ## 分治法
 
+顾名思义，分治问题由“分”（divide）和“治”（conquer）两部分组成，通过把原问题分为子问题，再将子问题进行处理合并，从而实现对原问题的求解。我们在排序章节展示的归并排序就是典型的分治问题，其中“分”即为把大数组平均分成两个小数组，通过递归实现，最终我们会得到多个长度为1 的子数组;“治”即为把已经排好序的两个小数组合成为一个排好序的大数组，从长度为1 的子数组开始，最终合成一个大数组。
+
+我们也使用数学表达式来表示这个过程。定义T(n) 表示处理一个长度为n 的数组的时间复杂度，则归并排序的时间复杂度递推公式为T(n) = 2T(n/2) +O(n)。其中2T(n/2) 表示我们分成了
+
+两个长度减半的子问题，O(n) 则为合并两个长度为n/2 数组的时间复杂度。
+
+那么怎么利用这个递推公式得到最终的时间复杂度呢？这里我们可以利用著名的主定理
+
+（Master theorem）求解：
+
+![division](division.png)通过主定理我们可以知道，归并排序属于第二种情况，且时间复杂度为O(n log n)。其他的分
+
+治问题也可以通过主定理求得时间复杂度。
+
+[241 DifferentWays to Add Parentheses (Medium)](241/README.md)
+
+## **巧解数学问题**
+
+### **公倍数和公因数**
+
+利用辗转相除法，我们可以很方便地求得两个数的最大公因数（greatest common divisor，gcd）；将两个数相乘再除以最大公因数即可得到最小公倍数（least common multiple, lcm）。
+
+![math-1](math-1.png)
+
+进一步地，我们也可以通过扩展欧几里得算法（extended gcd）在求得a 和b 最大公因数的同时，也得到它们的系数x 和y，从而使ax + by = gcd(a, b)。
+
+![math-2](math-2.png)
+
+### **质数**
+
+[204 Count Primes (Medium) ](204/README.md)
+
+[172 Factorial Trailing Zeroes](172/README.md)
+
+### **随机**
+
+ Fisher-Yates 洗牌算法：原理是通过随机交换位置来实现随机打乱，有正向和反向两种写法，且实现非常方便。
+
+![shuffle](shuffle.png)
+
+## **位运算**
+
+![bit-1](bit-1.png)
+
+[461 Hamming Distance (Easy) ](461/README.md)
+
+[190  Reverse Bits (Easy)](190/README.md)
+
+[342 Power of Four (Easy)](342/README.md)
+
+[318 Maximum Product of Word Lengths (Medium) ](318/README.md)
+
+[338 Counting Bits (Medium) ](338/README.md)
+
+## **巧用数据结构**
+
+### **数组**
+
+[448 Find All Numbers Disappeared in an Array (Easy) ](448/README.md)
+
+[48 Rotate Image (Medium) ](48/README.md)
+
+[240 Search a 2D Matrix II (Medium)](240/README.md)
+
+[769 Max Chunks To Make Sorted (Medium) ](769/README.md)
 
 
-[](README.md)
 
+### **栈和队列**
+
+[232 Implement Queue using Stacks (Easy)](232/README.md)
+
+[155 Min Stack (Easy) ](155/README.md)
+
+[20 Valid Parentheses (Easy)](/README.md)
+
+
+
+### **单调栈**
+
+单调栈通过维持栈内值的单调递增（递减）性，在整体O(n) 的时间内处理需要大小比较的问题。
+
+[739 Daily Temperatures (Medium)](739/README.md)
+
+
+
+### **优先队列/堆**
+
+优先队列（priority queue）可以在O(1) 时间内获得最大值，并且可以在O(log n) 时间内取出最大值或插入任意值。
+
+优先队列常常用堆（heap）来实现。**堆是一个完全二叉树**，其每个节点的值总是大于等于子节点的值。实际实现堆时，我们通常用一个数组而不是用指针建立一个树。这是因为堆是完全二叉树，所以用数组表示时，位置i 的节点的父节点位置一定为i/2，而它的两个子节点的位置又一定分别为2i 和2i+1。
+
+以下是堆的实现方法，其中最核心的两个操作是**上浮** 和 **下沉**：如果一个节点比父节点大，那么需要交换这个两个节点；交换后还可能比它新的父节点大，因此需要不断地进行比较和交换操作，我们称之为上浮；类似地，如果一个节点比父节小，也需要不断地向下进行比较和交换操作，我们称之为下沉。如果一个节点有两个子节点，我们总是交换最大的子节点。
+
+[23 Merge k Sorted Lists (Hard)](23/README.md)
+
+
+
+### **双端队列**
+
+[239 Sliding Window Maximum(hard)](239/README.md)
+
+
+
+### **哈希表**
+
+[1 Two Sum (Easy) ](1/README.md)
+
+[128  Longest Consecutive Sequence (Medium) ](128/README.md)
+
+[](/README.md)
+
+[](/README.md)
+
+[](/README.md)
+
+[](/README.md)
+
+[](/README.md)
+
+[](/README.md)
+
+[](/README.md)
+
+[](/README.md)
